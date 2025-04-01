@@ -18,7 +18,7 @@ public class Ansatt_Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Skriv inn ansatt ID: ");
-        Long ansattId = scanner.nextLong();
+        int ansattId = scanner.nextInt();
 
         Ansatt ansatt = finnAnsattById(ansattId);
 
@@ -31,7 +31,7 @@ public class Ansatt_Main {
         scanner.close();
     }
 
-    private static Ansatt finnAnsattById(Long ansattId) {
+    private static Ansatt finnAnsattById(int ansattId) {
         System.out.println("Kobler til database...");
         EntityManager em = emf.createEntityManager();
         

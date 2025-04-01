@@ -26,8 +26,10 @@ public class AvdelingDAO {
 		   
 		      System.out.println("Kobler til database...");
 		      
-		      System.out.println("Skriv inn hvilken ansatt som skal flyttes til hvilken avdeling");
+		      System.out.println("Skriv inn hvilken avdeling en ansatt skal flyttes til (først avd, så ansatt)");
 		      Integer avdeling = scanner.nextInt();
+		      scanner.nextLine();
+		      
 		      String nyavdeling = scanner.nextLine();
 		      String ansatt1 = scanner.nextLine();
 		      oppdaterAvdeling(avdeling, nyavdeling, ansatt1);
@@ -36,7 +38,8 @@ public class AvdelingDAO {
 		      String avdnavn = scanner.nextLine();
 		      Integer ansatt2 = scanner.nextInt();
 		      leggTilAvdeling(avdnavn, ansatt2);
-		      		
+		      
+		    	
 		      scanner.close();
 		        if (avdelingid != null)
 					System.out.println("Avdeling funnet: " + avdelingid);
@@ -59,6 +62,8 @@ public class AvdelingDAO {
 		        
 		        System.out.println("Liste over alle avdelinger med sjef:");
 		        System.out.println(skrivUtAlle());
+		        
+		        
 	   }
 		   
 	
@@ -131,6 +136,7 @@ public class AvdelingDAO {
             em.close();
         }
     }
+   
     
     public static Avdeling leggTilAvdeling(String avdelingnavn, Integer sjefid) {
         System.out.println("Kobler til database...");

@@ -36,7 +36,7 @@ public class Avdeling {
 		
 	}
 	
-	public Avdeling(int avdelingID, String avdelingNavn, Ansatt ansattSjef) {
+	public Avdeling(String avdelingNavn, Ansatt ansattSjef) {
 		this.setAvdelingNavn(avdelingNavn);
 		this.setAnsattSjef(ansattSjef);
 	}
@@ -46,8 +46,14 @@ public class Avdeling {
 	}
 
 	public void setAvdelingNavn(String avdelingNavn) {
-		this.avdelingNavn = avdelingNavn;
-	}
+		    System.out.println("DEBUG: Forsøker å sette avdelingNavn til: '" + avdelingNavn + "'");
+		    
+		    if (avdelingNavn == null || avdelingNavn.trim().isEmpty()) {
+		        throw new IllegalArgumentException("Avdelingsnavn kan ikke være tomt eller null.");
+		    }
+		    
+		    this.avdelingNavn = avdelingNavn;
+		}
 
 	public Ansatt getAnsattSjef() {
 		return ansattSjef;
